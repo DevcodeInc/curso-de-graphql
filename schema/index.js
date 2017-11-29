@@ -7,10 +7,12 @@ const LinkDef = require('./entities/Link');
 const rootQuery = `
 type Query {
   allLinks: [Link!]
+  link(id: Int!): Link
 }
 type Mutation {
   createLink(link: newLink): Link
   updateLink(id: Int!, link: updateLink): Link
+  deleteLink(id: Int!): Link
 }
 `;
 

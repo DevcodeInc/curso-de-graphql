@@ -2,7 +2,11 @@ const Link = require('./../models/Link');
 
 const resolvers = {
   Query: {
-    allLinks: () => Link.query()
+    allLinks: () => Link.query(),
+    link: (_, params) => {
+      const id = params.id;
+      return Link.query().findById(id);
+    }
   },
   Mutation :{
     createLink: (_, params) => {
@@ -13,6 +17,14 @@ const resolvers = {
       const id = params.id;
       const updateLink = params.link;
       return Link.query().patchAndFetchById(id, updateLink);
+    },
+    deleteLink: (_, params) => {
+      const id = params.id;
+      return Link.query().findById(id)
+      .then((link) => {
+        return Link.query().deleteById(id)
+        .then(() => link);
+      });
     }
   }
 };
