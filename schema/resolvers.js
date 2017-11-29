@@ -1,28 +1,12 @@
-const links = [
-  {
-    id: 1,
-    url: 'https://devcode.la',
-    description: 'bla bla bla'
-  },
-  {
-    id: 2,
-    url: 'https://nicobytes.github.io',
-    description: 'bla bla bla ble ble ble'
-  }
-];
+const Link = require('./../models/Link');
 
 const resolvers = {
   Query: {
-    allLinks: () => links
+    allLinks: () => Link.query()
   },
   Mutation :{
     createLink: (_, params) => {
-      const newLink = {
-        id: links.length + 1,
-        ...params.link
-      };
-      links.push(newLink);
-      return newLink;
+      return null;
     }
   }
 };
