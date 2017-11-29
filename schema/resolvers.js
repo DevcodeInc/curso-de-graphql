@@ -6,7 +6,8 @@ const resolvers = {
   },
   Mutation :{
     createLink: (_, params) => {
-      return null;
+      const newLink = params.link;
+      return Link.query().insert(newLink);
     }
   }
 };
