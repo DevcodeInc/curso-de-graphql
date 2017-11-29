@@ -19,7 +19,7 @@ const resolvers = {
     createLink: (_, params) => {
       const newLink = {
         id: links.length + 1,
-        ...params
+        ...params.link
       };
       links.push(newLink);
       return newLink;

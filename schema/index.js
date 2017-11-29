@@ -9,7 +9,7 @@ type Query {
   allLinks: [Link!]
 }
 type Mutation {
-  createLink(description: String!, url: String!): Link
+  createLink(link: newLink): Link
 }
 `;
 
