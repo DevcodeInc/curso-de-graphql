@@ -1,4 +1,5 @@
 const Link = require('./../models/Link');
+const User = require('./../models/User');
 
 const resolvers = {
   Query: {
@@ -6,7 +7,8 @@ const resolvers = {
     link: (_, params) => {
       const id = params.id;
       return Link.query().findById(id);
-    }
+    },
+    allUser: () => User.query()
   },
   Mutation :{
     createLink: (_, params) => {
