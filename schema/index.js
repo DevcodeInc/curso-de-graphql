@@ -8,6 +8,9 @@ const rootQuery = `
 type Query {
   allLinks: [Link!]
 }
+type Mutation {
+  createLink(description: String!, url: String!): Link
+}
 `;
 
 // Generate the schema object from your types definition.
