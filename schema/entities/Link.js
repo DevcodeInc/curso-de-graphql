@@ -10,6 +10,11 @@ input newLink{
   url: String!
   description: String!
 }
+
+input updateLink{
+  url: String
+  description: String
+}
 `;
 
 module.exports = LinkDef;

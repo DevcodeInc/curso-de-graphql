@@ -10,6 +10,7 @@ type Query {
 }
 type Mutation {
   createLink(link: newLink): Link
+  updateLink(id: Int!, link: updateLink): Link
 }
 `;
 
