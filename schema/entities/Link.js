@@ -4,6 +4,7 @@ type Link {
   id: ID!
   url: String!
   description: String!
+  postedBy: User
 }
 
 input newLink{
