@@ -3,30 +3,34 @@ const User = require('./../models/User');
 
 const resolvers = {
   Query: {
-    allLinks: () => Link.query(),
+    allLinks: () => Link.query().eager('postedBy'),
     link: (_, params) => {
       const id = params.id;
-      return Link.query().findById(id);
+      return Link.query().eager('postedBy').findById(id);
     },
-    allUsers: () => User.query()
+    allUsers: () => User.query().eager('links')
   },
   Mutation :{
     createLink: (_, params) => {
       const newLink = params.link;
-      return Link.query().insert(newLink);
+      return Link.query().eager('postedBy').insert(newLink);
     },
     updateLink: (_, params) => {
       const id = params.id;
       const updateLink = params.link;
-      return Link.query().patchAndFetchById(id, updateLink);
+      return Link.query().eager('postedBy').patchAndFetchById(id, updateLink);
     },
     deleteLink: (_, params) => {
       const id = params.id;
-      return Link.query().findById(id)
+      return Link.query().eager('postedBy').findById(id)
       .then((link) => {
         return Link.query().deleteById(id)
         .then(() => link);
       });
+    },
+    createUser: (_, params) => {
+      const newUser = params.user;
+      return User.query().insert(newUser);
     }
   }
 };

@@ -15,6 +15,7 @@ type Mutation {
   createLink(link: newLink): Link
   updateLink(id: Int!, link: updateLink): Link
   deleteLink(id: Int!): Link
+  createUser(user: newUser): User
 }
 `;
 

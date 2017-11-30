@@ -5,6 +5,11 @@ type User {
   email: String!
   links: [Link!]
 }
+
+input newUser{
+  name: String!
+  email: String!
+}
 `;
 
 module.exports = UserDef;
