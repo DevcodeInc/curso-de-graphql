@@ -22,7 +22,7 @@ const resolvers = {
             return Link.query().eager('postedBy').insert(newLink);
           }
         })
-      }
+      } 
       return Link.query().eager('postedBy').insert(newLink);
     },
     updateLink: (_, params) => {
