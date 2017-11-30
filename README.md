@@ -9,8 +9,13 @@ Para iniciar:
 
 `
 git clone git@github.com:DevcodeInc/curso-de-graphql.git
+
 npm install
+
 npm run db:migrate
+
 npm run db:seed
+
 npm run start
+
 `
