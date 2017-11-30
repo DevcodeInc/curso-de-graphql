@@ -13,6 +13,16 @@ const resolvers = {
   Mutation :{
     createLink: (_, params) => {
       const newLink = params.link;
+      if ( newLink.postedBy ) {
+        return User.query().findById(newLink.postedBy)
+        .then((user) => {
+          if (user === undefined) {
+            throw new Error('user not found')
+          }else {
+            return Link.query().eager('postedBy').insert(newLink);
+          }
+        })
+      }
       return Link.query().eager('postedBy').insert(newLink);
     },
     updateLink: (_, params) => {

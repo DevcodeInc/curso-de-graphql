@@ -13,7 +13,13 @@ app.use(
   '/graphql',
   bodyParser.json(),
   graphqlExpress({
-    schema
+    schema,
+    formatError: (error) => {
+      return {
+        name: error.name,
+        msg: error.message
+      }
+    }
   })
 );
 

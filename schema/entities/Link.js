@@ -10,6 +10,7 @@ type Link {
 input newLink{
   url: String!
   description: String!
+  postedBy: Int
 }
 
 input updateLink{
